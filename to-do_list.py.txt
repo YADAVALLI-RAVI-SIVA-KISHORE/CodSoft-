@@ -1,0 +1,40 @@
+task=[]
+while True:
+  print('==========TO-DO_LIST==========')
+  print('1.ADD TASKS')
+  print('2.VIEW TASK')
+  print('3.MARK A TASK AS COMPLETED')
+  print('4.DELETE A TASK')
+  print('5.EXIT')
+  choice=int(input('Enter a choice options in (1-5) : '))
+  if choice==1:
+    n=int(input('Enter number of tasks you want to do : '))
+    for i in range(n):
+        tasks=input(f'Enter your task {i+1}: ')
+        task.append(tasks)
+    print(f'your {i+1} tasks are added into your TO-DO LIST..!')
+  elif choice==2:
+    if not task:
+      print('No tasks yet..!')
+    else:
+      for i in range(len(task)):
+        print(f'{i+1}. {task[i]}')
+  elif choice==3:
+    x=int(input('Enter the number of your task to mark it as completed : '))
+    if 1<=x<=len(task):
+      task[x-1]+=' [DONE]'
+      print(f'Your task {x} is now marked as completed..!')
+    else:
+      print('Invalid task number...')
+  elif choice==4:
+    y=int(input('Enter the task number which is you want to delete : '))
+    if 1<=y<=len(task):
+      remove=task.pop(y-1)
+      print(f'Deleted task : {y-1}')
+    else:
+      print('Invalid task number entered...')
+  elif choice==5:
+    print('Goodbye...')
+    break
+  else:
+    print('Invalid choice was entered...!')
